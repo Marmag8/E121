@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Edytuj Zadanie</title>
+        <!--<link rel="stylesheet" href="/styles/main.css">-->
+    </head>
+    <body>
+        <%- include('../partials/header') %>
+
+        <main>
+            <form method="post" action="/edit/<%= task._id %>">
+                <fieldset>
+                    <legend>Nowa Notatka</legend>
+                    <label for="title">Tytuł:</label>
+                    <input type="text" id="title" name="title" value="<%= task.title %>" required><br>
+                    
+                    <label for="content">Treść:</label>
+                    <textarea id="content" name="content" required><%= task.content %></textarea><br>
+
+                    <label for="status">Status:</label>
+                    <select id="status" name="status" required><br>
+                        <option value="oczekujace" <%= task.status === 'oczekujace' ? 'selected' : '' %>>Oczekujące</option>
+                        <option value="w trakcie" <%= task.status === 'w trakcie' ? 'selected' : '' %>>W trakcie</option>
+                        <option value="zakonczone" <%= task.status === 'zakonczone' ? 'selected' : '' %>>Zakończone</option>
+                    </select><br>
+                    
+                    <button type="submit">Dodaj Notatkę</button>
+                </fieldset>
+            </form>
+        </main>
+
+        <%- include('../partials/footer') %>
+    </body>
+</html>
