@@ -10,17 +10,17 @@
         <%- include('../partials/header') %>
 
         <main>
-            <% if(tasks.length === 0) { %>
+            <% if(recipes.length === 0) { %>
                 <p>Brak Notatek do wyświetlenia</p>
             <% } else { %>
                 <ul>
-                    <% tasks.forEach(task => { %>
+                    <% recipes.forEach(recipe => { %>
                         <li>
-                            <h2><%= task.title %></h2>
-                            <p><%= task.content %></p>
-                            <p>Status: <%= task.status %></p>
-                            <a href="/edit/<%= task._id %>">Edytuj</a>
-                            <form action="/delete/<%= task._id %>" method="POST" style="display:inline;">
+                            <h2><%= recipe.title %></h2>
+                            <p><%= recipe.content %></p>
+                            <p>Status: <%= recipe.status %></p>
+                            <a href="/edit/<%= recipe._id %>">Edytuj</a>
+                            <form action="/delete/<%= recipe._id %>" method="POST" style="display:inline;">
                                 <button type="submit">Usuń</button>
                             </form>
                         </li>

@@ -10,20 +10,20 @@
         <%- include('../partials/header') %>
 
         <main>
-            <form method="post" action="/edit/<%= task._id %>">
+            <form method="post" action="/edit/<%= recipe._id %>">
                 <fieldset>
                     <legend>Nowa Notatka</legend>
                     <label for="title">Tytuł:</label>
-                    <input type="text" id="title" name="title" value="<%= task.title %>" required><br>
+                    <input type="text" id="title" name="title" value="<%= recipe.title %>" required><br>
                     
                     <label for="content">Treść:</label>
-                    <textarea id="content" name="content" required><%= task.content %></textarea><br>
+                    <textarea id="content" name="content" required><%= recipe.content %></textarea><br>
 
                     <label for="status">Status:</label>
                     <select id="status" name="status" required><br>
-                        <option value="oczekujace" <%= task.status === 'oczekujace' ? 'selected' : '' %>>Oczekujące</option>
-                        <option value="w trakcie" <%= task.status === 'w trakcie' ? 'selected' : '' %>>W trakcie</option>
-                        <option value="zakonczone" <%= task.status === 'zakonczone' ? 'selected' : '' %>>Zakończone</option>
+                        <option value="oczekujace" <%= recipe.status === 'oczekujace' ? 'selected' : '' %>>Oczekujące</option>
+                        <option value="w trakcie" <%= recipe.status === 'w trakcie' ? 'selected' : '' %>>W trakcie</option>
+                        <option value="zakonczone" <%= recipe.status === 'zakonczone' ? 'selected' : '' %>>Zakończone</option>
                     </select><br>
                     
                     <button type="submit">Dodaj Notatkę</button>
