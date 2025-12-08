@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Edytuj Zadanie</title>
+        <title>Edytuj Przepis</title>
         <!--<link rel="stylesheet" href="/styles/main.css">-->
     </head>
     <body>
@@ -16,17 +16,13 @@
                     <label for="title">Tytuł:</label>
                     <input type="text" id="title" name="title" value="<%= recipe.title %>" required><br>
                     
-                    <label for="content">Treść:</label>
-                    <textarea id="content" name="content" required><%= recipe.content %></textarea><br>
+                    <label for="description">Treść:</label>
+                    <textarea id="description" name="description" required><%= recipe.description %></textarea><br>
 
-                    <label for="status">Status:</label>
-                    <select id="status" name="status" required><br>
-                        <option value="oczekujace" <%= recipe.status === 'oczekujace' ? 'selected' : '' %>>Oczekujące</option>
-                        <option value="w trakcie" <%= recipe.status === 'w trakcie' ? 'selected' : '' %>>W trakcie</option>
-                        <option value="zakonczone" <%= recipe.status === 'zakonczone' ? 'selected' : '' %>>Zakończone</option>
-                    </select><br>
+                    <label for="instructions">Instrukcje Przygotowania:</label>
+                    <textarea id="instructions" name="instructions" required><%= recipe.instructions %></textarea><br>
                     
-                    <button type="submit">Dodaj Notatkę</button>
+                    <button type="submit">Edytuj Przepis</button>
                 </fieldset>
             </form>
         </main>

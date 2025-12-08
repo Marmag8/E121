@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Zadania</title>
+        <!--<link rel="stylesheet" href="/styles/main.css">-->
+    </head>
+    <body>
+        <%- include('../partials/header') %>
+
+        <main>
+            <% if(recipes.length === 0) { %>
+                <p>Brak Notatek do wyświetlenia</p>
+            <% } else { %>
+                <ul>
+                    <% recipes.forEach(recipe => { %>
+                        <li>
+                            <h2><%= recipe.title %></h2>
+                            <p><%= recipe.content %></p>
+                            <p>Status: <%= recipe.status %></p>
+                            <a href="/edit/<%= recipe._id %>">Edytuj</a>
+                            <form action="/delete/<%= recipe._id %>" method="POST" style="display:inline;">
+                                <button type="submit">Usuń</button>
+                            </form>
+                        </li>
+                    <% }) %>
+                </ul>
+            <% } %>
+        </main>
+
+        <%- include('../partials/footer') %>
+    </body>
+</html>

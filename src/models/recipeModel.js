@@ -11,21 +11,21 @@ async function getRecipeById(id) {
     return await db.collection('recipes').findOne({ _id: new ObjectId(id) });
 }
 
-async function addRecipe(title, content, status) {
+async function addRecipe(title, description, instructions) {
     const db = getDB();
     await db.collection('recipes').insertOne({
         title,
-        content,
-        status,
+        description,
+        instructions,
         createdAt: new Date()
     });
 }
 
-async function updateRecipe(id, title, content, status) {
+async function updateRecipe(id, title, description, instructions) {
     const db = getDB();
     await db.collection('recipes').updateOne(
         { _id: new ObjectId(id) },
-        { $set: { title, content, status } }
+        { $set: { title, description, instructions } }
     );
 }
 

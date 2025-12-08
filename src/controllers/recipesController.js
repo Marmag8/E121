@@ -10,8 +10,8 @@ async function getAddForm(req, res) {
 }
 
 async function postAdd(req, res) {
-    const { title, content, status } = req.body;
-    await recipesModel.addRecipe(title, content, status);
+    const { title, description, instructions } = req.body;
+    await recipesModel.addRecipe(title, description, instructions);
     res.redirect('/');
 }
 
@@ -21,8 +21,8 @@ async function getEditForm(req, res) {
 }
 
 async function postEdit(req, res) {
-    const { title, content, status } = req.body;
-    await recipesModel.updateRecipe(req.params.id, title, content, status);
+    const { title, description, instructions } = req.body;
+    await recipesModel.updateRecipe(req.params.id, title, description, instructions);
     res.redirect('/');
 }
 
@@ -31,4 +31,9 @@ async function deleteRecipe(req, res) {
     res.redirect('/');
 }
 
-module.exports = { getAll, getAddForm, postAdd, getEditForm, postEdit, deleteRecipe };
+async function showRecipe(req, res) {
+    const recipe = await recipesModel.getRecipeById(req.params.id);
+    res.render('pages/show', { recipe });
+}
+    
+module.exports = { getAll, getAddForm, postAdd, getEditForm, postEdit, deleteRecipe, showRecipe };
