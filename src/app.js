@@ -1,14 +1,30 @@
 const express = require('express');
 const path = require('path');
-const router = require('./routes/recipesRouter');
+const session = require('express-session');
+const recipesRouter = require('./routes/recipesRouter');
+const authRouter = require('./routes/loginRouter');
 
 const app = express();
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, '../public')))
 app.use(express.urlencoded({ extended: true }));
-app.use('/', router);
+
+app.use(session({
+    secret: 'recipes-secret-key-2025',
+    resave: false,
+    saveUninitialized: false,
+    cookie: { maxAge: 24 * 60 * 60 * 1000 } // 24 godziny
+}));
+
+app.use((req, res, next) => {
+    res.locals.user = req.session.username || null;
+    next();
+});
+
+app.use('/', authRouter);
+app.use('/', recipesRouter);
 
 module.exports = app;

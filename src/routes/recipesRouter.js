@@ -1,13 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const recipesController = require('../controllers/recipesController');
+const { auth } = require('../middleware/loginMiddleware');
 
-router.get('/', recipesController.getAll);
-router.get('/new', recipesController.getAddForm);
-router.post('/new', recipesController.postAdd);
-router.get('/edit/:id', recipesController.getEditForm);
-router.post('/edit/:id', recipesController.postEdit);
-router.post('/delete/:id', recipesController.deleteRecipe);
-router.get('/show/:id', recipesController.showRecipe);
+router.get('/', auth, recipesController.getAll);
+router.get('/new', auth, recipesController.getAddForm);
+router.post('/new', auth, recipesController.postAdd);
+router.get('/edit/:id', auth, recipesController.getEditForm);
+router.post('/edit/:id', auth, recipesController.postEdit);
+router.post('/delete/:id', auth, recipesController.deleteRecipe);
+router.get('/show/:id', auth, recipesController.showRecipe);
 
 module.exports = router;

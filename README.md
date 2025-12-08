@@ -1,10 +1,11 @@
 # E121
 
-**Aplikacja o tematyce listy przepisów, umożliwiająca zarządzanie przepisami które zostają zapisane w bazie mongodb.**
+****
 
 ## Instrukcje uruchomenia
 
 **1. Potrzebne moduły:**
+> - express
 > - ejs
 > - mongodb
 
@@ -16,5 +17,5 @@
 -# *Opcjonalnie, w MongoDB Compass utwórz połączenie z kontenerem i zobacz stan kolekcji danych
 
 **3. W terminalu Visual Studio Code:**
-> - npm i ejs mongodb
+> - npm i express ejs mongodb
 > - npm start

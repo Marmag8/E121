@@ -4,14 +4,14 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Przepisy</title>
-        <link rel="stylesheet" href="/public/css/main.css">
+        <link rel="stylesheet" href="/css/main.css">
     </head>
     <body>
         <%- include('../partials/header') %>
 
         <main>
             <% if(recipes.length === 0) { %>
-                <p>Brak Notatek do wyświetlenia</p>
+                <p>Brak Przepisów do wyświetlenia</p>
             <% } else { %>
                 <% recipes.forEach(recipe => { %>
                     <p>
