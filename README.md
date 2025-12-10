@@ -14,6 +14,7 @@
 > - express-session
 > - ejs
 > - mongodb
+> - dotenv
 
 **3. W terminalu Docker Desktop:**
 > - ```docker run -d --name recipes -p 27017:27017 mongo:6.0```
@@ -31,5 +32,6 @@
 > - Otwórz wybrany folder, w którym ma się znaleźć aplikacja
 > - Otwórz terminal
 > - git clone https://github.com/Marmag8/E121.git
+> - cd E121
 > - npm i
 > - npm start

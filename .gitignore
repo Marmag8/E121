@@ -1,2 +1,6 @@
+# Pliki środowiskowe i informacyjne
 *.txt
+*.env
+
+# Moduły node.js
 node_modules/

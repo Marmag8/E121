@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const session = require('express-session');
@@ -13,7 +14,7 @@ app.use(express.static(path.join(__dirname, '../public')))
 app.use(express.urlencoded({ extended: true }));
 
 app.use(session({
-    secret: 'recipes-secret-key-2025',
+    secret: process.env.SESSION_KEY,
     resave: false,
     saveUninitialized: false,
     cookie: { maxAge: 24 * 60 * 60 * 1000 } // 24 godziny
