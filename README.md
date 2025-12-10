@@ -11,6 +11,7 @@
 
 **2. Potrzebne moduły:**
 > - express
+> - express-session
 > - ejs
 > - mongodb
 
