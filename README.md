@@ -6,7 +6,7 @@
 > - [NodeJS](https://nodejs.org/en)
 > - Git lub GitHub Desktop (w tym wypadku używany będzie Git)
 > - Docker Desktop
-> - Wybrane środowisko programistyczne (np. Visual Studio Code)
+> - Wybrane środowisko programistyczne (w tym wypadku będzie to Visual Studio Code)
 > - Opcjonalnie dla podglądu danych, MongoDB Compass
 
 **2. Potrzebne moduły:**
@@ -28,7 +28,7 @@
 > - Przycisk "Create Database"
 
 **5. W Visual Studio Code:**
-> - Otwórz wybrany folder, w którym ma się znaleźć apilkacja
+> - Otwórz wybrany folder, w którym ma się znaleźć aplikacja
 > - Otwórz terminal
 > - git clone https://github.com/Marmag8/E121.git
 > - npm i
