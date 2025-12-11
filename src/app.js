@@ -1,9 +1,8 @@
-require('dotenv').config();
 const express = require('express');
-const path = require('path');
+const path = require('path');   
 const session = require('express-session');
 const recipesRouter = require('./routes/recipesRouter');
-const authRouter = require('./routes/loginRouter');
+const loginRouter = require('./routes/loginRouter');
 
 const app = express();
 
@@ -25,7 +24,7 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use('/', authRouter);
+app.use('/', loginRouter);
 app.use('/', recipesRouter);
 
 module.exports = app;

@@ -1,0 +1,18 @@
+W terminalu Docker Desktop:
+- Wykonaj komendę docker run -d --name recipes -p 27017:27017 mongo:6.0
+
+Parametry komendy docker run:
+- docker run - tworzy i uruchamia nowy kontener z obrazu
+- -d (detached) - uruchamia kontener w tle, bez blokowania terminala
+- --name recipes - nadaje kontenerowi nazwę "recipes"
+- -p 27017:27017 - definiuje porty (port_hosta:port_kontenera), umożliwia dostęp do MongoDB spoza kontenera
+- mongo:6.0 - nazwa obrazu Docker i jego wersja (MongoDB w wersji 6.0)
+
+Opcjonalnie, w MongoDB Compass utwórz połączenie z kontenerem:
+- Przycisk "Add new connection"
+- URI: mongodb://localhost:27017
+- Ustal nazwę i opcjonalnie kolor połączenia
+- Przycisk "Save & Connect"
+- Najedź na utworzoną bazę danych, następnie kliknij "Create Database"
+- Database Name: recipes, Collection Name: recipes
+- Przycisk "Create Database"

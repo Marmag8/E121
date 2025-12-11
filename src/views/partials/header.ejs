@@ -1,7 +1,7 @@
 <header>
     <h1>Przepisy</h1>
     <% if (user) { %>
-        Witaj, <%= user %>! | <a href="/logout">Wyloguj</a><br>
+        <p><span name="welcomemsg"></span>Witaj, <%= user %>!</span> | <a href="/logout">Wyloguj</a></p>
     <% } %>
-    <a href="/">Strona Główna</a> | <a href="/new">Dodaj</a>
+    <p><a href="/">Strona Główna</a> | <a href="/new">Dodaj</a></p>
 </header>

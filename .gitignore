@@ -1,6 +1,7 @@
-# Pliki środowiskowe i informacyjne
-*.txt
+# Pliki środowiskowe i informacyjne, polecenie
+info.txt
 *.env
+*.pdf
 
 # Moduły node.js
 node_modules/

@@ -16,22 +16,18 @@
 > - mongodb
 > - dotenv
 
-**3. W terminalu Docker Desktop:**
-> - ```docker run -d --name recipes -p 27017:27017 mongo:6.0```
-
-**4. Opcjonalnie, w MongoDB Compass utwórz połączenie z kontenerem:**
-> - Przycisk "Add new connection"
-> - URI: ```mongodb://localhost:27017```
-> - Ustal nazwę i opcjonalnie kolor połączenia
-> - Przycisk "Save & Connect"
-> - Najedź na utworzoną bazę danych, następnie kliknij "Create Database"
-> - Database Name: ```recipes```, Collection Name: ```recipes```
-> - Przycisk "Create Database"
+**3. Tworzenie i uruchamianie bazy danych:**
+> - [Instrukcje](docker.txt)
 
 **5. W Visual Studio Code:**
 > - Otwórz wybrany folder, w którym ma się znaleźć aplikacja
 > - Otwórz terminal
 > - git clone https://github.com/Marmag8/E121.git
 > - cd E121
+> - Set-Content -Path .env -Value "SESSION_KEY=[WARTOSC]" -NoNewline -Encoding UTF8
+> - W nowo utworzonym pliku .env, zamień ```[WARTOSC]``` na dowolny ciąg znaków, który posłuży za klucz sesji, np. ```"supersekretnyklucz"```
 > - npm i
 > - npm start
+> - By wyłączyć aplikację, zamknij Visual Studio Code lub wykonaj Ctrl+C w terminalu, a następnie zatrzymaj kontener w Docker Desktop
+
+### Przy każdym następującym uruchomieniu, wystarczy otworzyć folder aplikacji w Visual Studio Code, a następnie otworzyć terminal i wykonać polecenie ```npm start```

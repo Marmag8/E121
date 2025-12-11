@@ -1,8 +1,28 @@
 const recipesModel = require('../models/recipeModel');
 
 async function getAll(req, res) {
-    const recipes = await recipesModel.getAllRecipes(req.session.userId);
-    res.render('pages/index', { recipes });
+    const name = req.query.name ?? "";
+    const sort = req.query.sort ?? "newest";
+    let recipes = await recipesModel.getAllRecipes(req.session.userId);
+    const filteredRecipes = recipes.filter(recipe => recipe.title.toLowerCase().includes(name.toLowerCase()));
+    
+    switch(sort) {
+        case 'oldest':
+            filteredRecipes.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
+            break;
+        case 'a-z':
+            filteredRecipes.sort((a, b) => a.title.localeCompare(b.title));
+            break;
+        case 'z-a':
+            filteredRecipes.sort((a, b) => b.title.localeCompare(a.title));
+            break;
+        case 'newest':
+        default:
+            filteredRecipes.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+            break;
+    }
+    
+    res.render('pages/index', { recipes: filteredRecipes, name, sort });
 }
 
 async function getAddForm(req, res) {

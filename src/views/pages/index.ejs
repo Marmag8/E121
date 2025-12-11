@@ -8,15 +8,33 @@
     </head>
     <body>
         <%- include('../partials/header') %>
+        <div class="searchbar">
+            <form action="/" method="GET">
+                <input type="text" name="name" id="name" placeholder="Szukaj przepisu..." value="<%= name %>">
+                <button type="submit">Szukaj</button>
+            </form>
+        </div>
 
-        <main>
+        <div class="sort">
+            <form action="/" method="GET">
+                <input type="hidden" name="name" value="<%= name %>">
+                <select name="sort" id="sort" onchange="this.form.submit()">
+                    <option value="newest" <%= sort === 'newest' ? 'selected' : '' %>>Najnowsze</option>
+                    <option value="oldest" <%= sort === 'oldest' ? 'selected' : '' %>>Najstarsze</option>
+                    <option value="a-z" <%= sort === 'a-z' ? 'selected' : '' %>>A-Z</option>
+                    <option value="z-a" <%= sort === 'z-a' ? 'selected' : '' %>>Z-A</option>
+                </select>
+            </form>
+        </div>
+
+        <main class="recipes">
             <% if(recipes.length === 0) { %>
                 <p>Brak Przepisów do wyświetlenia</p>
             <% } else { %>
                 <% recipes.forEach(recipe => { %>
-                    <p>
-                        <a href="/show/<%= recipe._id %>" class="recipe"><h2><%= recipe.title %></h2></a>
-                    </p>
+                    <a href="/show/<%= recipe._id %>" class="recipe">
+                        <h2><%= recipe.title %></h2>
+                    </a>
                 <% }) %>
             <% } %>
         </main>

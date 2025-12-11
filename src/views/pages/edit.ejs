@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Edytuj Przepis</title>
-        <!--<link rel="stylesheet" href="/styles/main.css">-->
+        <link rel="stylesheet" href="/css/main.css">
     </head>
     <body>
         <%- include('../partials/header') %>
@@ -12,7 +12,7 @@
         <main>
             <form method="post" action="/edit/<%= recipe._id %>">
                 <fieldset>
-                    <legend>Nowa Notatka</legend>
+                    <legend>Edytuj Przepis</legend>
                     <label for="title">Tytuł:</label>
                     <input type="text" id="title" name="title" value="<%= recipe.title %>" required><br>
                     
