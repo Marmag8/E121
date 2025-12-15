@@ -13,10 +13,10 @@
 ## Instrukcje uruchomenia
 
 **1. Wymagane Oprogramowanie:**
-> - [NodeJS](https://nodejs.org/en)
-> - Git lub GitHub Desktop (w tym wypadku używany będzie Git)
-> - Docker Desktop
-> - Opcjonalnie dla podglądu danych, MongoDB Compass
+- [NodeJS](https://nodejs.org/en)
+- Git lub GitHub Desktop (w tym wypadku używany będzie Git)
+- Docker Desktop
+- Opcjonalnie dla podglądu danych, MongoDB Compass
 
 **2. Wykorzystane technologie:**
 - NodeJS, a w tym:
@@ -29,18 +29,18 @@
 - mongodb
 
 **3. Tworzenie i uruchamianie bazy danych:**
-> - [Instrukcje](docker.txt)
+- [Instrukcje](docker.txt)
 
 **4. Uruchamianie aplikacji:**
-> - Wciśnij Ctrl+R, a następnie wprowadź `cmd` w powstałym okienku i kliknij 'OK', aby otworzyć terminal
-> - W terminalu otwórz wybrany folder, w którym ma się znaleźć aplikacja (np. `cd C:\Users\PC\Documents`)
-> - Następnie wykonaj polecenie `git clone https://github.com/Marmag8/E121.git`
-> - Przejdź do folderu aplikacji używając polecenia `cd E121`
-> - Otwórz folder aplikacji w eksploratorze plików, a następnie utwórz w nim plik o nazwie `.env`
-> - Skopiuj do pliku `.env` zawartość pliku `.env.example`, i zamien `twoj_dowolny_klucz` na dowolny ciąg znaków, który służył będzie za klucz do sesji. Nie używaj spacji ani polskich znaków przy tworzeniu klucza.
-> - W terminalu wykonaj polecenie `npm i`
-> - A następnie `npm start`
-> - By wyłączyć aplikację, zamknij terminal lub wykonaj Ctrl+C w oknie terminalu, a następnie zatrzymaj kontener w Docker Desktop
+- Wciśnij Ctrl+R, a następnie wprowadź `cmd` w powstałym okienku i kliknij 'OK', aby otworzyć terminal
+- W terminalu otwórz wybrany folder, w którym ma się znaleźć aplikacja (np. `cd C:\Users\PC\Documents`)
+- Następnie wykonaj polecenie `git clone https://github.com/Marmag8/E121.git`
+- Przejdź do folderu aplikacji używając polecenia `cd E121`
+- Otwórz folder aplikacji w eksploratorze plików, a następnie utwórz w nim plik o nazwie `.env`
+- Skopiuj do pliku `.env` zawartość pliku `.env.example`, i zamien `twoj_dowolny_klucz` na dowolny ciąg znaków, który służył będzie za klucz do sesji. Nie używaj spacji ani polskich znaków przy tworzeniu klucza.
+- W terminalu wykonaj polecenie `npm i`
+- A następnie `npm start`
+- By wyłączyć aplikację, zamknij terminal lub wykonaj Ctrl+C w oknie terminalu, a następnie zatrzymaj kontener w Docker Desktop
 
 __**Przy każdym następującym uruchomieniu wystarczy uruchomić kontener w Docker Desktop, otworzyć folder aplikacji w terminalu, a następnie wykonać polecenie `npm start`**__
 
