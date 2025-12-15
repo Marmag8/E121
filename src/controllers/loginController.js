@@ -60,7 +60,7 @@ async function postRegister(req, res) {
         }
 
         if (errors.length > 0) {
-            return res.render('pages/register', { errors: errors });
+            return res.render('pages/register', { errors, username });
         }
         
         const existing = await userModel.getUserByUsername(username);
