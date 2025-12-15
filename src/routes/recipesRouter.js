@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const recipesController = require('../controllers/recipesController');
-const { auth } = require('../middleware/loginMiddleware');
+const { auth } = require('../middleware/auth');
 
 router.get('/', auth, recipesController.getAll);
 router.get('/new', auth, recipesController.getAddForm);
