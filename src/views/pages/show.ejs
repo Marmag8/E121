@@ -11,8 +11,10 @@
 
         <main>
             <h2><%= recipe.title %></h2>
-            <p><%= recipe.description %></p>
-            <p>Instrukcje Przygotowania: <%= recipe.instructions %></p>
+            <p class="labels">Opis:</p>
+            <p class="recipe_details"><%= recipe.description %></p>
+            <p class="labels">Instrukcje Przygotowania:</p>
+            <p class="recipe_details"><%= recipe.instructions %></p>
             <a href="/edit/<%= recipe._id %>">Edytuj</a>
             <form action="/delete/<%= recipe._id %>" method="POST" style="display:inline;">
                 <button type="submit">Usuń</button>

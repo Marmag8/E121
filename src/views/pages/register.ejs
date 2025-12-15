@@ -16,8 +16,12 @@
                 <fieldset>
                     <legend>Utwórz konto</legend>
                     
-                    <% if (error) { %>
-                        <p style="color: red;"><%= error %></p>
+                    <% if (errors && errors.length > 0) { %>
+                        <ul class="errors">
+                            <% errors.forEach(function(error) { %>
+                                <li><%= error %></li>
+                            <% }); %>
+                        </ul>
                     <% } %>
                     
                     <label for="username">Nazwa użytkownika:</label>
@@ -25,6 +29,7 @@
                     
                     <label for="password">Hasło:</label>
                     <input type="password" id="password" name="password" required><br>
+                    <span id="passwordInfo">Hasło musi zawierać co najmniej 8 znaków, w tym dużą literę, cyfrę i znak specjalny.</span><br>
                     
                     <button type="submit">Zarejestruj się</button>
                 </fieldset>
