@@ -1,5 +1,15 @@
 # E121
 
+**Aplikacja napisana w NodeJS służąca do zarządzania listą przepisów, w tym dodawania, edycji, usuwania przepisów. Przepisy są zapisywane do lokalnej bazy danych i przywracane po każdym zalogowaniu.**
+
+## Funkcjonalności
+
+- Tworzenie konta i logowanie
+- Lista przepisów; przepisy przypisane do konkretnego użytkownika
+- Dodawanie, edycja, i usuwanie przepisów
+- Podgląd szczegółów przepisu, takich jak opis, instrukcje przygotowania
+- Przepisy zapisywane do bazy danych w MongoDB
+
 ## Instrukcje uruchomenia
 
 **1. Wymagane Oprogramowanie:**
@@ -8,48 +18,50 @@
 > - Docker Desktop
 > - Opcjonalnie dla podglądu danych, MongoDB Compass
 
-**2. Potrzebne moduły:**
-> - express
-> - express-session
-> - ejs
-> - mongodb
-> - dotenv
+**2. Wykorzystane technologie:**
+- NodeJS, a w tym:
+    - express
+    - ejs
+    - js
+    - moduł dotenv
+    - moduł express-session
+- mongodb
 
 **3. Tworzenie i uruchamianie bazy danych:**
 > - [Instrukcje](docker.txt)
 
 **4. Uruchamianie aplikacji:**
-> - Wciśnij Ctrl+R, a następnie wprowadź ```cmd``` w powstałym okienku i kliknij 'OK', aby otworzyć terminal
-> - W terminalu otwórz wybrany folder, w którym ma się znaleźć aplikacja (np. ```cd C:\Users\PC\Documents```)
-> - Następnie wykonaj polecenie ```git clone https://github.com/Marmag8/E121.git```
-> - Przejdź do folderu aplikacji używając polecenia ```cd E121```
-> - Otwórz folder aplikacji w eksploratorze plików, a następnie utwórz w nim plik o nazwie ```.env```
-> - Skopiuj do pliku ```.env``` zawartość pliku ```.env.example```, i zamien ```twoj_dowolny_klucz``` na dowolny ciąg znaków, który służył będzie za klucz do sesji. Nie używaj spacji ani polskich znaków przy tworzeniu klucza.
-> - W terminalu wykonaj polecenie ```npm i```
-> - A następnie ```npm start```
+> - Wciśnij Ctrl+R, a następnie wprowadź `cmd` w powstałym okienku i kliknij 'OK', aby otworzyć terminal
+> - W terminalu otwórz wybrany folder, w którym ma się znaleźć aplikacja (np. `cd C:\Users\PC\Documents`)
+> - Następnie wykonaj polecenie `git clone https://github.com/Marmag8/E121.git`
+> - Przejdź do folderu aplikacji używając polecenia `cd E121`
+> - Otwórz folder aplikacji w eksploratorze plików, a następnie utwórz w nim plik o nazwie `.env`
+> - Skopiuj do pliku `.env` zawartość pliku `.env.example`, i zamien `twoj_dowolny_klucz` na dowolny ciąg znaków, który służył będzie za klucz do sesji. Nie używaj spacji ani polskich znaków przy tworzeniu klucza.
+> - W terminalu wykonaj polecenie `npm i`
+> - A następnie `npm start`
 > - By wyłączyć aplikację, zamknij terminal lub wykonaj Ctrl+C w oknie terminalu, a następnie zatrzymaj kontener w Docker Desktop
 
-__**Przy każdym następującym uruchomieniu wystarczy uruchomić kontener w Docker Desktop, otworzyć folder aplikacji w terminalu, a następnie wykonać polecenie ```npm start```**__
+__**Przy każdym następującym uruchomieniu wystarczy uruchomić kontener w Docker Desktop, otworzyć folder aplikacji w terminalu, a następnie wykonać polecenie `npm start`**__
 
-# Lista Endpointow
+## Lista Endpointów
 
-Poniższa tabela zawiera listę głównych endpointów aplikacji, metodę HTTP, krótki opis oraz informację czy wymagana jest autoryzacja (zalogowany użytkownik).
-
-| Ścieżka (path) | Metoda | Cel | Wymaga zalogowania? |
-|---|---:|---|:---:|
-| `/` | GET | Strona główna — lista przepisów należących do zalogowanego użytkownika | Tak |
+| Ścieżka | Metoda | Cel | Wymaga zalogowania? |
+|---|:---:|---|:---:|
+| `/` | GET | Strona główna - pokazuje listę przepisów należących do zalogowanego użytkownika | Tak |
 | `/login` | GET | Formularz logowania | Nie |
-| `/login` | POST | Obsługa logowania (podaje `username` i `password`) | Nie |
+| `/login` | POST | Obsługa logowania | Nie |
 | `/register` | GET | Formularz rejestracji nowego użytkownika | Nie |
 | `/register` | POST | Obsługa rejestracji (tworzy konto i loguje użytkownika) | Nie |
 | `/logout` | GET | Wylogowanie (niszczy sesję) | Tak |
 | `/new` | GET | Formularz dodawania nowego przepisu | Tak |
-| `/new` | POST | Tworzy nowy przepis powiązany z aktualnym użytkownikiem | Tak |
-| `/show/:id` | GET | Wyświetla szczegóły przepisu o podanym `id` (tylko jeśli przepis należy do użytkownika) | Tak |
-| `/edit/:id` | GET | Formularz edycji przepisu (tylko właściciel) | Tak |
-| `/edit/:id` | POST | Zapisuje zmiany przepisu (tylko właściciel) | Tak |
-| `/delete/:id` | POST | Usuwa przepis o podanym `id` (tylko właściciel) | Tak |
+| `/new` | POST | Tworzy nowy przepis przypisany do aktualnego użytkownikia | Tak |
+| `/show/:id` | GET | Wyświetla szczegóły przepisu o podanym `id` | Tak |
+| `/edit/:id` | GET | Formularz edycji przepisu | Tak |
+| `/edit/:id` | POST | Zapisuje zmiany w przepisie | Tak |
+| `/delete/:id` | POST | Usuwa przepis o podanym `id` | Tak |
 
-Uwaga:
-- Statyczne pliki (CSS, JS, obrazki) są serwowane z katalogu `public` i dostępne pod ścieżką `/` (np. ` /css/main.css`).
-- Wymaganie zalogowania jest realizowane przez middleware sprawdzające sesję (`express-session`).
+Dodatkowo:
+- Statyczne pliki (CSS) są dostępne pod ścieżką `/public/`
+- Weryfikacja zalogowania wykonywana przez middleware (`/src/middleware/auth.js`), a dane użytkownika są zapisywane w sesji (`express-session`).
+
+## Autor: Bartosz Warzecha 4e 2025
