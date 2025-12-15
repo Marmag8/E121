@@ -25,6 +25,7 @@
     - js
     - moduł dotenv
     - moduł express-session
+    - moduł bcrypt
 - mongodb
 
 **3. Tworzenie i uruchamianie bazy danych:**

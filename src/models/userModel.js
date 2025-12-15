@@ -8,7 +8,7 @@ async function getUserByUsername(username) {
 
 async function createUser(username, password) {
     const db = getDB();
-    const pass = hash(password);
+    const pass = await hash(password);
     await db.collection('users').insertOne({
         username,
         password: pass,

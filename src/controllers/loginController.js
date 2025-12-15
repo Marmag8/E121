@@ -1,5 +1,5 @@
 const userModel = require('../models/userModel');
-const { hash, unhash } = require('../data/hash');
+const { compare } = require('../data/hash');
 
 async function getLoginForm(req, res) {
     res.render('pages/login', { error: null });
@@ -15,9 +15,8 @@ async function postLogin(req, res) {
     }
     
     try {
-        const pass = unhash(user.password);
-        
-        if (pass !== password) {
+        const match = await compare(password, user.password);
+        if (!match) {
             return res.render('pages/login', { error: 'Nieprawidłowa nazwa użytkownika lub hasło' });
         }
     } catch (err) {

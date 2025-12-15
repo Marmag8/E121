@@ -1,21 +1,13 @@
-const crypto = require('crypto');
+const bcrypt = require('bcrypt');
 
-const algorithm = 'aes-256-cbc';
-key = Buffer.alloc(32);
-iv = Buffer.alloc(16);
+const saltRounds = 10;
 
-function hash(password) {
-    const encrypter = crypto.createCipheriv(algorithm, key, iv);
-    let hashed = encrypter.update(password, 'utf8', 'hex');
-    hashed += encrypter.final('hex');
-    return hashed;
+async function hash(password) {
+    return await bcrypt.hash(password, saltRounds);
 }
 
-function unhash(hashedPassword) {
-    const decrypter = crypto.createDecipheriv(algorithm, key, iv);
-    let password = decrypter.update(hashedPassword, 'hex', 'utf8');
-    password += decrypter.final('utf8');
-    return password;
+async function compare(plain, hashed) {
+    return await bcrypt.compare(plain, hashed);
 }
 
-module.exports = { hash, unhash };
+module.exports = { hash, compare };
